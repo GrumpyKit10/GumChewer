@@ -63,13 +63,25 @@ IP Scheme:
 - Subnet Mask: 255.255.255.0
 - Default Gateway: Not configured (isolated lab)
 
-             [ DC - 192.168.100.10 ]
-                     |
-                 Internal Network
-                     |
-      ---------------------------------
-      |                               |
-[ Client01 ]                     [ Client02 ]
+```mermaid
+flowchart LR
+    subgraph Host
+        VB[VirtualBox Hypervisor]
+    end
+
+    subgraph LABNET 192.168.100.0/24
+        DC[DC01\n192.168.100.10\nAD DS / DNS]
+        C1[WIN11-01\n192.168.100.20]
+        C2[WIN11-02\n192.168.100.21]
+    end
+
+    VB --> DC
+    VB --> C1
+    VB --> C2
+
+    C1 -->|Kerberos / LDAP / DNS| DC
+    C2 -->|Kerberos / LDAP / DNS| DC
+```
 
 ## Troubleshooting Highlights
 
