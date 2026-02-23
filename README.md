@@ -17,9 +17,9 @@ This project documents the design and implementation of a Windows Server 2022 Ac
 - OS: Microsoft Windows 11 Home (x64)
 - CPU: AMD Ryzen 7 3700X
 - Motherboard: MSI B450 TOMAHAWK MAX (MS-7C02)
-- Memory: 2 x 16GB DDR4 SDRAM
+- Memory: 2 x 16 GB DDR4 SDRAM
 - GPU: AMD Radeon RX5700 XT
-- Storage: 2TB SATA HDD & 1TB NVMe SSD
+- Storage: 2 TB SATA HDD & 1 TB NVMe SSD
 
 ### Hypervisor
 - Oracle VM VirtualBox
@@ -28,20 +28,61 @@ This project documents the design and implementation of a Windows Server 2022 Ac
 
 #### Domain Controller
 - OS: Windows Server 2022 (Desktop Experience)
-- RAM: X GB
-- CPU: X cores
-- Disk: X GB (VDI, dynamically allocated)
-- Network: Internal Network (LABNET)
+- RAM: 8 GB
+- CPU: 4 cores
+- Disk: 80 GB (VDI, dynamically allocated)
+- Network: Internal Network (adlabnet)
 - Static IP: 192.168.100.10
 
 #### Client 01
 - OS: Windows 11 Pro
-- RAM: X GB
-- CPU: X cores
-- Disk: X GB
-- Network: Internal Network (LABNET)
+- RAM: 8 GB
+- CPU: 4 cores
+- Disk: 65 GB
+- Network: Internal Network (adlabnet)
 - Static IP: 192.168.100.20
 - DNS: 192.168.100.10
 
 #### Client 02
-(Same structure)
+- OS: Windows 11 Pro
+- RAM: 8 GB
+- CPU: 4 cores
+- Disk: 65 GB
+- Network: Internal Network (adlabnet)
+- Static IP: 192.168.100.21
+- DNS: 192.168.100.10
+
+## Network Design
+
+All VMs were configured on an isolated Internal Network within VirtualBox to simulate a private enterprise LAN.
+
+IP Scheme:
+- Domain Controller: 192.168.100.10
+- Client01: 192.168.100.20
+- Client02: 192.168.100.21
+- Subnet Mask: 255.255.255.0
+- Default Gateway: Not configured (isolated lab)
+
+             [ DC - 192.168.100.10 ]
+                     |
+                 Internal Network
+                     |
+      ---------------------------------
+      |                               |
+[ Client01 ]                     [ Client02 ]
+
+## Troubleshooting Highlights
+
+- 
+
+## Lessons Learned
+
+-
+
+## Future Improvements
+
+- Implement DHCP role
+- Configure roaming profiles
+- Deploy software via GPO
+- Implement security groups for role-based access control
+- Simulate a helpdesk password reset workflow with delegated permissions
