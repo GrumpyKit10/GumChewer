@@ -87,7 +87,7 @@ flowchart LR
 
 - Windows Server 2022 failed to mount partition during OS install.
 - Installed CLI-only Windows Server 2022 OS by mistake (unattended install).
-- Needed to bypass internet requirement duirng Windows 11 install on Clients to create local accounts.
+- Needed to bypass internet requirement during Windows 11 install on Clients to create local accounts.
 - Locked out of Domain Controller by changing the computer name after promoting to domain controller.
 - Could not join domain because created users were stored in the default AD container instead of custom OU. 
 - Client desktop backgrounds failed to load due to NTFS and share permissions on the DC. 
