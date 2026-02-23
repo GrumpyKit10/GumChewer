@@ -85,11 +85,22 @@ flowchart LR
 
 ## Troubleshooting Highlights
 
-- 
+- Windows Server 2022 failed to mount partition during OS install.
+- Installed CLI-only Windows Server 2022 OS by mistake (unattended install).
+- Needed to bypass internet requirement duirng Windows 11 install on Clients to create local accounts.
+- Locked out of Domain Controller by changing the computer name after promoting to domain controller.
+- Could not join domain because created users were stored in the default AD container instead of custom OU. 
+- Client desktop backgrounds failed to load due to NTFS and share permissions on the DC. 
+- Group Policy not applying to clients due to improper config in AD and GPM. 
 
 ## Lessons Learned
 
--
+- Unattended installs should be avoided to ensure proper OS setup. 
+- Windows 11 internet requirements can be bypassed to create a local account on install.
+- Only change the name of the Domain Controller before promoting the machine to Domain Controller. 
+- The default Active Directory containers cannot be linked to group policies. 
+- NTFS and share permissions need to both be configured to allow sharing over the domain network.
+- Group Policy affecting the desktop background and access to control panel should be applied to the users and not the workstations.
 
 ## Future Improvements
 
