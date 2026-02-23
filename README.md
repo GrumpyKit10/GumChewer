@@ -70,9 +70,9 @@ flowchart LR
     end
 
     subgraph adlabnet 192.168.100.0/24
-        DC[DC01\n192.168.100.10\nAD DS / DNS]
-        C1[WIN11-01\n192.168.100.20]
-        C2[WIN11-02\n192.168.100.21]
+        DC[WS2022-GumChewer 192.168.100.10 AD DS / DNS]
+        C1[WIN11-Client01 192.168.100.20]
+        C2[WIN11-Client02 192.168.100.21]
     end
 
     VB --> DC
